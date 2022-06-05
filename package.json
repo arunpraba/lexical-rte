@@ -1,8 +1,19 @@
 {
-  "name": "lexical-rte",
+  "name": "@arunprabak/lexical-rte",
   "version": "0.1.0",
-  "private": true,
+  "author": "Arun Prabhakaran",
+  "description": "It is a lexical based rich text editor",
+  "keywords": [
+    "react",
+    "components",
+    "lexical",
+    "rte"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "private": false,
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@lexical/react": "^0.3.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -36,5 +47,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arunprabak/lexical-rte.git"
   }
 }
