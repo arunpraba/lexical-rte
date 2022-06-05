@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { Editor } from "./editor";
 
 function App() {
+  const [values, setValues] = useState([]);
+  const [currentValue, setCurrentValue] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="md:container mx-auto my-5">
+      <h1>Rich text editor</h1>
+      <Editor
+        onSave={(editorState) => {
+          const stringifiedEditorState = JSON.stringify(editorState.toJSON());
+          setValues((prev) => [...prev, stringifiedEditorState]);
+        }}
+        value={currentValue}
+        onChange={(value) => {
+          setCurrentValue(value);
+        }}
+      />
+      <div className="my-5 bg-white h-96 rounded-md overflow-auto">
+        {values.map((value, index) => {
+          return (
+            <div key={index}>
+              <h1>{value}</h1>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
