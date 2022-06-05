@@ -49,7 +49,7 @@ const editorConfig = {
   ],
 };
 
-export const Editor = ({ value, onChange, onSave }) => {
+export const Editor = ({ value, onInit, onChange, onSave }) => {
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
@@ -67,7 +67,7 @@ export const Editor = ({ value, onChange, onSave }) => {
           <AutoLinkPlugin />
           <ListMaxIndentLevelPlugin maxDepth={7} />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-          <StatePlugin value={value} onChange={onChange} />
+          <StatePlugin onInit={onInit} value={value} onChange={onChange} />
         </div>
       </div>
     </LexicalComposer>
