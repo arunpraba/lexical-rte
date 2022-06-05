@@ -692,9 +692,17 @@ export default function ToolbarPlugin({ onSave }) {
             <i className="format justify-align" />
           </button>{" "}
           <button
-            className="ml-auto mr-2 border px-2 rounded"
+            style={{
+              marginLeft: "auto",
+              marginRight: "5px",
+              background: "white",
+              border: "1px solid #999",
+              borderRadius: "4px",
+            }}
             onClick={() => {
-              onSave(editor.getEditorState());
+              if (typeof onSave === "function") {
+                onSave(editor.getEditorState());
+              }
             }}
           >
             Save

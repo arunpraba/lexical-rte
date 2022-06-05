@@ -7,9 +7,9 @@ exports.default = ToolbarPlugin;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
-var _LexicalComposerContext = require("@lexical/react/LexicalComposerContext");
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require("react");
+var _LexicalComposerContext = require("@lexical/react/LexicalComposerContext");
 
 var _lexical = require("lexical");
 
@@ -27,6 +27,10 @@ var _richText = require("@lexical/rich-text");
 
 var _code = require("@lexical/code");
 
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 const LowPriority = 1;
 const supportedBlockTypes = new Set(["paragraph", "quote", "code", "h1", "h2", "ul", "ol"]);
 const blockTypeToBlockName = {
@@ -43,7 +47,7 @@ const blockTypeToBlockName = {
 };
 
 function Divider() {
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "divider"
   });
 }
@@ -149,10 +153,10 @@ function FloatingLinkEditor(_ref) {
       inputRef.current.focus();
     }
   }, [isEditMode]);
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     ref: editorRef,
     className: "link-editor"
-  }, isEditMode ? /*#__PURE__*/React.createElement("input", {
+  }, isEditMode ? /*#__PURE__*/_react.default.createElement("input", {
     ref: inputRef,
     className: "link-input",
     value: linkUrl,
@@ -175,13 +179,13 @@ function FloatingLinkEditor(_ref) {
         setEditMode(false);
       }
     }
-  }) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "link-input"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/_react.default.createElement("a", {
     href: linkUrl,
     target: "_blank",
     rel: "noopener noreferrer"
-  }, linkUrl), /*#__PURE__*/React.createElement("div", {
+  }, linkUrl), /*#__PURE__*/_react.default.createElement("div", {
     className: "link-edit",
     role: "button",
     tabIndex: 0,
@@ -199,14 +203,14 @@ function Select(_ref3) {
     options,
     value
   } = _ref3;
-  return /*#__PURE__*/React.createElement("select", {
+  return /*#__PURE__*/_react.default.createElement("select", {
     className: className,
     onChange: onChange,
     value: value
-  }, /*#__PURE__*/React.createElement("option", {
+  }, /*#__PURE__*/_react.default.createElement("option", {
     hidden: true,
     value: ""
-  }), options.map(option => /*#__PURE__*/React.createElement("option", {
+  }), options.map(option => /*#__PURE__*/_react.default.createElement("option", {
     key: option,
     value: option
   }, option)));
@@ -362,71 +366,71 @@ function BlockOptionsDropdownList(_ref4) {
     setShowBlockOptionsDropDown(false);
   };
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "dropdown",
     ref: dropDownRef
-  }, /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("button", {
     className: "item",
     onClick: formatParagraph
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
     className: "icon paragraph"
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("span", {
     className: "text"
-  }, "Normal"), blockType === "paragraph" && /*#__PURE__*/React.createElement("span", {
+  }, "Normal"), blockType === "paragraph" && /*#__PURE__*/_react.default.createElement("span", {
     className: "active"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     className: "item",
     onClick: formatLargeHeading
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
     className: "icon large-heading"
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("span", {
     className: "text"
-  }, "Large Heading"), blockType === "h1" && /*#__PURE__*/React.createElement("span", {
+  }, "Large Heading"), blockType === "h1" && /*#__PURE__*/_react.default.createElement("span", {
     className: "active"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     className: "item",
     onClick: formatSmallHeading
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
     className: "icon small-heading"
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("span", {
     className: "text"
-  }, "Small Heading"), blockType === "h2" && /*#__PURE__*/React.createElement("span", {
+  }, "Small Heading"), blockType === "h2" && /*#__PURE__*/_react.default.createElement("span", {
     className: "active"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     className: "item",
     onClick: formatBulletList
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
     className: "icon bullet-list"
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("span", {
     className: "text"
-  }, "Bullet List"), blockType === "ul" && /*#__PURE__*/React.createElement("span", {
+  }, "Bullet List"), blockType === "ul" && /*#__PURE__*/_react.default.createElement("span", {
     className: "active"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     className: "item",
     onClick: formatNumberedList
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
     className: "icon numbered-list"
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("span", {
     className: "text"
-  }, "Numbered List"), blockType === "ol" && /*#__PURE__*/React.createElement("span", {
+  }, "Numbered List"), blockType === "ol" && /*#__PURE__*/_react.default.createElement("span", {
     className: "active"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     className: "item",
     onClick: formatQuote
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
     className: "icon quote"
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("span", {
     className: "text"
-  }, "Quote"), blockType === "quote" && /*#__PURE__*/React.createElement("span", {
+  }, "Quote"), blockType === "quote" && /*#__PURE__*/_react.default.createElement("span", {
     className: "active"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     className: "item",
     onClick: formatCode
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
     className: "icon code"
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("span", {
     className: "text"
-  }, "Code Block"), blockType === "code" && /*#__PURE__*/React.createElement("span", {
+  }, "Code Block"), blockType === "code" && /*#__PURE__*/_react.default.createElement("span", {
     className: "active"
   })));
 }
@@ -532,130 +536,130 @@ function ToolbarPlugin(_ref5) {
       editor.dispatchCommand(_link.TOGGLE_LINK_COMMAND, null);
     }
   }, [editor, isLink]);
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "toolbar",
     ref: toolbarRef
-  }, /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("button", {
     disabled: !canUndo,
     onClick: () => {
       editor.dispatchCommand(_lexical.UNDO_COMMAND);
     },
     className: "toolbar-item spaced",
     "aria-label": "Undo"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format undo"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     disabled: !canRedo,
     onClick: () => {
       editor.dispatchCommand(_lexical.REDO_COMMAND);
     },
     className: "toolbar-item",
     "aria-label": "Redo"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format redo"
-  })), /*#__PURE__*/React.createElement(Divider, null), supportedBlockTypes.has(blockType) && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement(Divider, null), supportedBlockTypes.has(blockType) && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("button", {
     className: "toolbar-item block-controls",
     onClick: () => setShowBlockOptionsDropDown(!showBlockOptionsDropDown),
     "aria-label": "Formatting Options"
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
     className: "icon block-type " + blockType
-  }), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("span", {
     className: "text"
-  }, blockTypeToBlockName[blockType]), /*#__PURE__*/React.createElement("i", {
+  }, blockTypeToBlockName[blockType]), /*#__PURE__*/_react.default.createElement("i", {
     className: "chevron-down"
-  })), showBlockOptionsDropDown && /*#__PURE__*/(0, _reactDom.createPortal)( /*#__PURE__*/React.createElement(BlockOptionsDropdownList, {
+  })), showBlockOptionsDropDown && /*#__PURE__*/(0, _reactDom.createPortal)( /*#__PURE__*/_react.default.createElement(BlockOptionsDropdownList, {
     editor: editor,
     blockType: blockType,
     toolbarRef: toolbarRef,
     setShowBlockOptionsDropDown: setShowBlockOptionsDropDown
-  }), document.body), /*#__PURE__*/React.createElement(Divider, null)), blockType === "code" ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Select, {
+  }), document.body), /*#__PURE__*/_react.default.createElement(Divider, null)), blockType === "code" ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Select, {
     className: "toolbar-item code-language",
     onChange: onCodeLanguageSelect,
     options: codeLanguges,
     value: codeLanguage
-  }), /*#__PURE__*/React.createElement("i", {
+  }), /*#__PURE__*/_react.default.createElement("i", {
     className: "chevron-down inside"
-  })) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+  })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_TEXT_COMMAND, "bold");
     },
     className: "toolbar-item spaced " + (isBold ? "active" : ""),
     "aria-label": "Format Bold"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format bold"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_TEXT_COMMAND, "italic");
     },
     className: "toolbar-item spaced " + (isItalic ? "active" : ""),
     "aria-label": "Format Italics"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format italic"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_TEXT_COMMAND, "underline");
     },
     className: "toolbar-item spaced " + (isUnderline ? "active" : ""),
     "aria-label": "Format Underline"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format underline"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_TEXT_COMMAND, "strikethrough");
     },
     className: "toolbar-item spaced " + (isStrikethrough ? "active" : ""),
     "aria-label": "Format Strikethrough"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format strikethrough"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_TEXT_COMMAND, "code");
     },
     className: "toolbar-item spaced " + (isCode ? "active" : ""),
     "aria-label": "Insert Code"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format code"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     onClick: insertLink,
     className: "toolbar-item spaced " + (isLink ? "active" : ""),
     "aria-label": "Insert Link"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format link"
-  })), isLink && /*#__PURE__*/(0, _reactDom.createPortal)( /*#__PURE__*/React.createElement(FloatingLinkEditor, {
+  })), isLink && /*#__PURE__*/(0, _reactDom.createPortal)( /*#__PURE__*/_react.default.createElement(FloatingLinkEditor, {
     editor: editor
-  }), document.body), /*#__PURE__*/React.createElement(Divider, null), /*#__PURE__*/React.createElement("button", {
+  }), document.body), /*#__PURE__*/_react.default.createElement(Divider, null), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_ELEMENT_COMMAND, "left");
     },
     className: "toolbar-item spaced",
     "aria-label": "Left Align"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format left-align"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_ELEMENT_COMMAND, "center");
     },
     className: "toolbar-item spaced",
     "aria-label": "Center Align"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format center-align"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_ELEMENT_COMMAND, "right");
     },
     className: "toolbar-item spaced",
     "aria-label": "Right Align"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format right-align"
-  })), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       editor.dispatchCommand(_lexical.FORMAT_ELEMENT_COMMAND, "justify");
     },
     className: "toolbar-item",
     "aria-label": "Justify Align"
-  }, /*#__PURE__*/React.createElement("i", {
+  }, /*#__PURE__*/_react.default.createElement("i", {
     className: "format justify-align"
-  })), " ", /*#__PURE__*/React.createElement("button", {
+  })), " ", /*#__PURE__*/_react.default.createElement("button", {
     className: "ml-auto mr-2 border px-2 rounded",
     onClick: () => {
       onSave(editor.getEditorState());

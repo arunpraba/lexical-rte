@@ -7,7 +7,11 @@ exports.default = PlaygroundAutoLinkPlugin;
 
 require("core-js/modules/es.regexp.exec.js");
 
+var _react = _interopRequireDefault(require("react"));
+
 var _LexicalAutoLinkPlugin = require("@lexical/react/LexicalAutoLinkPlugin");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const URL_MATCHER = /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
 const EMAIL_MATCHER = /(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
@@ -30,7 +34,7 @@ const MATCHERS = [text => {
 }];
 
 function PlaygroundAutoLinkPlugin() {
-  return /*#__PURE__*/React.createElement(_LexicalAutoLinkPlugin.AutoLinkPlugin, {
+  return /*#__PURE__*/_react.default.createElement(_LexicalAutoLinkPlugin.AutoLinkPlugin, {
     matchers: MATCHERS
   });
 }

@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Editor = void 0;
 
+var _react = _interopRequireDefault(require("react"));
+
 var _LexicalComposer = require("@lexical/react/LexicalComposer");
 
 var _LexicalRichTextPlugin = require("@lexical/react/LexicalRichTextPlugin");
@@ -14,6 +16,8 @@ var _LexicalContentEditable = require("@lexical/react/LexicalContentEditable");
 var _LexicalHistoryPlugin = require("@lexical/react/LexicalHistoryPlugin");
 
 var _LexicalAutoFocusPlugin = require("@lexical/react/LexicalAutoFocusPlugin");
+
+require("./index.css");
 
 var _richText = require("@lexical/rich-text");
 
@@ -33,7 +37,7 @@ var _LexicalMarkdownShortcutPlugin = require("@lexical/react/LexicalMarkdownShor
 
 var _markdown = require("@lexical/markdown");
 
-var _ExampleTheme = _interopRequireDefault(require("./themes/ExampleTheme"));
+var _theme = _interopRequireDefault(require("./themes/theme"));
 
 var _ListMaxIndentLevelPlugin = _interopRequireDefault(require("./plugins/ListMaxIndentLevelPlugin"));
 
@@ -48,14 +52,14 @@ var _StatePlugin = _interopRequireDefault(require("./plugins/StatePlugin"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Placeholder() {
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "editor-placeholder"
   }, "Enter some rich text...");
 }
 
 const editorConfig = {
   // The editor theme
-  theme: _ExampleTheme.default,
+  theme: _theme.default,
 
   // Handling of errors during update
   onError(error) {
@@ -73,24 +77,24 @@ const Editor = _ref => {
     onChange,
     onSave
   } = _ref;
-  return /*#__PURE__*/React.createElement(_LexicalComposer.LexicalComposer, {
+  return /*#__PURE__*/_react.default.createElement(_LexicalComposer.LexicalComposer, {
     initialConfig: editorConfig
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "editor-container"
-  }, /*#__PURE__*/React.createElement(_ToolbarPlugin.default, {
+  }, /*#__PURE__*/_react.default.createElement(_ToolbarPlugin.default, {
     onSave: onSave
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/_react.default.createElement("div", {
     className: "editor-inner"
-  }, /*#__PURE__*/React.createElement(_LexicalRichTextPlugin.RichTextPlugin, {
-    contentEditable: /*#__PURE__*/React.createElement(_LexicalContentEditable.ContentEditable, {
+  }, /*#__PURE__*/_react.default.createElement(_LexicalRichTextPlugin.RichTextPlugin, {
+    contentEditable: /*#__PURE__*/_react.default.createElement(_LexicalContentEditable.ContentEditable, {
       className: "editor-input"
     }),
-    placeholder: /*#__PURE__*/React.createElement(Placeholder, null)
-  }), /*#__PURE__*/React.createElement(_LexicalHistoryPlugin.HistoryPlugin, null), /*#__PURE__*/React.createElement(_LexicalAutoFocusPlugin.AutoFocusPlugin, null), /*#__PURE__*/React.createElement(_CodeHighlightPlugin.default, null), /*#__PURE__*/React.createElement(_LexicalListPlugin.ListPlugin, null), /*#__PURE__*/React.createElement(_LexicalLinkPlugin.LinkPlugin, null), /*#__PURE__*/React.createElement(_AutoLinkPlugin.default, null), /*#__PURE__*/React.createElement(_ListMaxIndentLevelPlugin.default, {
+    placeholder: /*#__PURE__*/_react.default.createElement(Placeholder, null)
+  }), /*#__PURE__*/_react.default.createElement(_LexicalHistoryPlugin.HistoryPlugin, null), /*#__PURE__*/_react.default.createElement(_LexicalAutoFocusPlugin.AutoFocusPlugin, null), /*#__PURE__*/_react.default.createElement(_CodeHighlightPlugin.default, null), /*#__PURE__*/_react.default.createElement(_LexicalListPlugin.ListPlugin, null), /*#__PURE__*/_react.default.createElement(_LexicalLinkPlugin.LinkPlugin, null), /*#__PURE__*/_react.default.createElement(_AutoLinkPlugin.default, null), /*#__PURE__*/_react.default.createElement(_ListMaxIndentLevelPlugin.default, {
     maxDepth: 7
-  }), /*#__PURE__*/React.createElement(_LexicalMarkdownShortcutPlugin.MarkdownShortcutPlugin, {
+  }), /*#__PURE__*/_react.default.createElement(_LexicalMarkdownShortcutPlugin.MarkdownShortcutPlugin, {
     transformers: _markdown.TRANSFORMERS
-  }), /*#__PURE__*/React.createElement(_StatePlugin.default, {
+  }), /*#__PURE__*/_react.default.createElement(_StatePlugin.default, {
     onInit: onInit,
     value: value,
     onChange: onChange
