@@ -10,6 +10,10 @@ It is a lexical based rich text editor
 - [ ] Add KaTex support with annotation
 - [ ] Add Types
 
+### Install
+
+`npm install --save lexical-rte`
+
 ### Example
 
 ```jsx

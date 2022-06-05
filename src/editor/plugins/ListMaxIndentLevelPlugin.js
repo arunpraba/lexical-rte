@@ -1,3 +1,4 @@
+import React from "react";
 import { $getListDepth, $isListItemNode, $isListNode } from "@lexical/list";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import {
@@ -5,7 +6,7 @@ import {
   $isElementNode,
   $isRangeSelection,
   INDENT_CONTENT_COMMAND,
-  COMMAND_PRIORITY_HIGH
+  COMMAND_PRIORITY_HIGH,
 } from "lexical";
 import { useEffect } from "react";
 
@@ -15,7 +16,7 @@ function getElementNodesInSelection(selection) {
   if (nodesInSelection.length === 0) {
     return new Set([
       selection.anchor.getNode().getParentOrThrow(),
-      selection.focus.getNode().getParentOrThrow()
+      selection.focus.getNode().getParentOrThrow(),
     ]);
   }
 
